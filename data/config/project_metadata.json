@@ -1,0 +1,145 @@
+{
+  "version": "1.0",
+  "template": {
+    "project": {
+      "name": "",
+      "code": "",
+      "type": "web-app",
+      "version": "1.0.0",
+      "description": "",
+      "created_at": "",
+      "updated_at": ""
+    },
+    "organization": {
+      "company": "",
+      "department": "",
+      "address": "",
+      "contact": ""
+    },
+    "team": {
+      "sponsor": "",
+      "manager": "",
+      "lead_developer": "",
+      "members": []
+    },
+    "timeline": {
+      "start_date": "",
+      "end_date": "",
+      "phases": []
+    },
+    "technology": {
+      "frontend": "",
+      "backend": "",
+      "database": "",
+      "infrastructure": "",
+      "third_party": []
+    },
+    "documents": {
+      "status": {}
+    },
+    "metadata": {
+      "created_by": "",
+      "created_at": "",
+      "updated_by": "",
+      "updated_at": "",
+      "template_version": "1.0"
+    }
+  },
+  "status_values": {
+    "not_started": {
+      "label": "未开始",
+      "color": "#CCCCCC",
+      "description": "文档尚未开始编写"
+    },
+    "pending": {
+      "label": "待处理",
+      "color": "#FFB347",
+      "description": "文档已创建，待填充内容"
+    },
+    "in_progress": {
+      "label": "进行中",
+      "color": "#87CEEB",
+      "description": "文档正在编写中"
+    },
+    "review": {
+      "label": "审核中",
+      "color": "#DDA0DD",
+      "description": "文档已完成，等待审核"
+    },
+    "completed": {
+      "label": "已完成",
+      "color": "#90EE90",
+      "description": "文档已审核通过"
+    },
+    "archived": {
+      "label": "已归档",
+      "color": "#A9A9A9",
+      "description": "文档已归档"
+    }
+  },
+  "phase_order": [
+    "01-立项",
+    "02-需求",
+    "03-设计",
+    "04-开发",
+    "05-测试",
+    "06-部署",
+    "07-管理"
+  ],
+  "document_defaults": {
+    "frontmatter_template": "---\ntitle: {document_title}\nproject: {project_name}\nversion: {version}\nstatus: {status}\nauthor: {author}\ndate: {date}\n---\n\n",
+    "section_templates": {
+      "introduction": "# 引言\n\n## 背景\n\n<!-- 描述项目背景 -->\n\n## 目的\n\n<!-- 描述本文档的目的 -->\n\n## 范围\n\n<!-- 描述文档的范围 -->\n\n",
+      "references": "# 参考资料\n\n<!-- 列出参考文档和资料 -->\n\n",
+      "appendix": "# 附录\n\n<!-- 附录内容 -->\n\n"
+    }
+  },
+  "validation": {
+    "required_fields": [
+      "project.name",
+      "project.type",
+      "organization.company"
+    ],
+    "optional_fields": [
+      "project.code",
+      "project.description",
+      "team.members",
+      "technology.third_party"
+    ]
+  },
+  "export_formats": {
+    "zip": {
+      "extension": ".zip",
+      "description": "ZIP压缩包"
+    },
+    "tar": {
+      "extension": ".tar.gz",
+      "description": "TAR压缩包"
+    },
+    "directory": {
+      "extension": "",
+      "description": "目录结构"
+    }
+  },
+  "index_template": {
+    "title": "文档索引",
+    "sections": [
+      {
+        "name": "项目概览",
+        "type": "overview"
+      },
+      {
+        "name": "文档列表",
+        "type": "document_list"
+      },
+      {
+        "name": "完成状态",
+        "type": "status_report"
+      },
+      {
+        "name": "变更历史",
+        "type": "change_log"
+      }
+    ]
+  }
+}

@@ -1,0 +1,386 @@
+{
+  "version": "1.0",
+  "categories": {
+    "project": {
+      "name": "项目信息",
+      "description": "项目基本信息变量",
+      "variables": {
+        "project_name": {
+          "type": "string",
+          "required": true,
+          "default": "",
+          "description": "项目名称",
+          "example": "客户管理系统"
+        },
+        "project_code": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "description": "项目编号",
+          "example": "PRJ-2024-001"
+        },
+        "project_type": {
+          "type": "string",
+          "required": false,
+          "default": "web-app",
+          "description": "项目类型",
+          "options": ["web-app", "mobile-app", "desktop-app", "api-service", "data-platform"],
+          "example": "web-app"
+        },
+        "tech_stack": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "description": "技术栈",
+          "example": "React, Node.js, PostgreSQL"
+        },
+        "version": {
+          "type": "string",
+          "required": false,
+          "default": "1.0.0",
+          "description": "项目/文档版本",
+          "example": "1.0.0"
+        }
+      }
+    },
+    "organization": {
+      "name": "组织信息",
+      "description": "公司和部门信息",
+      "variables": {
+        "company": {
+          "type": "string",
+          "required": true,
+          "default": "",
+          "description": "公司名称",
+          "example": "XX科技有限公司"
+        },
+        "department": {
+          "type": "string",
+          "required": false,
+          "default": "信息技术部",
+          "description": "部门名称",
+          "example": "信息技术部"
+        },
+        "sponsor": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "description": "项目发起人",
+          "example": "张三"
+        },
+        "manager": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "description": "项目经理",
+          "example": "李四"
+        },
+        "team": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "description": "团队成员",
+          "example": "王五, 赵六, 孙七"
+        }
+      }
+    },
+    "personnel": {
+      "name": "人员信息",
+      "description": "作者和审核人员信息",
+      "variables": {
+        "author": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "description": "文档作者",
+          "example": "张三"
+        },
+        "reviewer": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "description": "审核人员",
+          "example": "李四"
+        },
+        "approver": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "description": "批准人员",
+          "example": "王五"
+        }
+      }
+    },
+    "datetime": {
+      "name": "日期时间",
+      "description": "日期和时间相关变量",
+      "variables": {
+        "date": {
+          "type": "string",
+          "required": false,
+          "auto": true,
+          "format": "YYYY-MM-DD",
+          "description": "当前日期",
+          "example": "2024-01-15"
+        },
+        "time": {
+          "type": "string",
+          "required": false,
+          "auto": true,
+          "format": "HH:MM:SS",
+          "description": "当前时间",
+          "example": "14:30:00"
+        },
+        "datetime": {
+          "type": "string",
+          "required": false,
+          "auto": true,
+          "format": "YYYY-MM-DD HH:MM:SS",
+          "description": "当前日期时间",
+          "example": "2024-01-15 14:30:00"
+        },
+        "year": {
+          "type": "string",
+          "required": false,
+          "auto": true,
+          "format": "YYYY",
+          "description": "当前年份",
+          "example": "2024"
+        },
+        "month": {
+          "type": "string",
+          "required": false,
+          "auto": true,
+          "format": "MM",
+          "description": "当前月份",
+          "example": "01"
+        },
+        "day": {
+          "type": "string",
+          "required": false,
+          "auto": true,
+          "format": "DD",
+          "description": "当前日期",
+          "example": "15"
+        },
+        "start_date": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "description": "项目开始日期",
+          "example": "2024-01-01"
+        },
+        "end_date": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "description": "项目结束日期",
+          "example": "2024-06-30"
+        },
+        "duration": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "description": "项目周期",
+          "example": "6个月"
+        }
+      }
+    },
+    "content": {
+      "name": "内容变量",
+      "description": "文档内容相关变量",
+      "variables": {
+        "background": {
+          "type": "text",
+          "required": true,
+          "description": "项目背景",
+          "placeholder": "请描述项目的业务背景和现状"
+        },
+        "objectives": {
+          "type": "text",
+          "required": true,
+          "description": "项目目标",
+          "placeholder": "请列出项目的主要目标"
+        },
+        "scope": {
+          "type": "text",
+          "required": true,
+          "description": "项目范围",
+          "placeholder": "请描述项目的包含和不包含范围"
+        },
+        "budget": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "description": "项目预算",
+          "example": "500万元"
+        },
+        "timeline": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "description": "项目时间线",
+          "example": "2024年1月-2024年12月"
+        }
+      }
+    },
+    "technical": {
+      "name": "技术相关",
+      "description": "技术文档相关变量",
+      "variables": {
+        "architecture": {
+          "type": "text",
+          "required": true,
+          "description": "系统架构描述",
+          "placeholder": "请描述系统的整体架构设计"
+        },
+        "modules": {
+          "type": "text",
+          "required": true,
+          "description": "功能模块列表",
+          "placeholder": "请列出系统的功能模块"
+        },
+        "interfaces": {
+          "type": "text",
+          "required": true,
+          "description": "接口列表",
+          "placeholder": "请列出系统的主要接口"
+        },
+        "database_type": {
+          "type": "string",
+          "required": false,
+          "default": "PostgreSQL",
+          "description": "数据库类型",
+          "example": "PostgreSQL"
+        },
+        "api_list": {
+          "type": "text",
+          "required": true,
+          "description": "API接口列表",
+          "placeholder": "请列出所有的API接口"
+        }
+      }
+    },
+    "risk": {
+      "name": "风险管理",
+      "description": "风险相关变量",
+      "variables": {
+        "risk_assessment": {
+          "type": "text",
+          "required": true,
+          "description": "风险评估",
+          "placeholder": "请列出项目的主要风险"
+        },
+        "risk_identification": {
+          "type": "text",
+          "required": true,
+          "description": "风险识别",
+          "placeholder": "请识别项目可能存在的风险"
+        },
+        "mitigation_plan": {
+          "type": "text",
+          "required": true,
+          "description": "缓解计划",
+          "placeholder": "请描述风险缓解措施"
+        }
+      }
+    },
+    "document": {
+      "name": "文档元数据",
+      "description": "文档本身的元数据",
+      "variables": {
+        "doc_id": {
+          "type": "string",
+          "required": false,
+          "auto": true,
+          "description": "文档ID",
+          "example": "DOC-001"
+        },
+        "doc_status": {
+          "type": "string",
+          "required": false,
+          "default": "draft",
+          "description": "文档状态",
+          "options": ["draft", "review", "approved", "published"],
+          "example": "draft"
+        },
+        "confidentiality": {
+          "type": "string",
+          "required": false,
+          "default": "internal",
+          "description": "保密级别",
+          "options": ["public", "internal", "confidential", "secret"],
+          "example": "internal"
+        }
+      }
+    },
+    "stage_specific": {
+      "name": "阶段特定变量",
+      "description": "各阶段特定变量",
+      "variables": {
+        "week": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "description": "周次",
+          "example": "第1周"
+        },
+        "milestones": {
+          "type": "text",
+          "required": true,
+          "description": "里程碑列表",
+          "placeholder": "请列出项目的关键里程碑"
+        },
+        "deliverables": {
+          "type": "text",
+          "required": true,
+          "description": "交付物列表",
+          "placeholder": "请列出项目的交付物"
+        }
+      }
+    }
+  },
+  "auto_fill_rules": {
+    "date": {
+      "function": "current_date",
+      "format": "%Y-%m-%d"
+    },
+    "time": {
+      "function": "current_time",
+      "format": "%H:%M:%S"
+    },
+    "datetime": {
+      "function": "current_datetime",
+      "format": "%Y-%m-%d %H:%M:%S"
+    },
+    "year": {
+      "function": "current_year",
+      "format": "%Y"
+    },
+    "month": {
+      "function": "current_month",
+      "format": "%m"
+    },
+    "day": {
+      "function": "current_day",
+      "format": "%d"
+    },
+    "doc_id": {
+      "function": "generate_uuid",
+      "prefix": "DOC"
+    }
+  },
+  "validation_rules": {
+    "project_name": {
+      "min_length": 2,
+      "max_length": 100,
+      "pattern": "^[\\u4e00-\\u9fa5a-zA-Z0-9_\\-\\s]+$"
+    },
+    "version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+(-[a-zA-Z0-9]+)?$"
+    },
+    "email": {
+      "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+    }
+  }
+}

@@ -1,0 +1,306 @@
+{
+  "version": "1.0",
+  "project_types": {
+    "web-app": {
+      "name": "Web应用",
+      "description": "基于Web浏览器的应用程序",
+      "default_stages": ["initiation", "requirements", "design", "development", "testing", "deployment", "management"]
+    },
+    "mobile-app": {
+      "name": "移动应用",
+      "description": "iOS/Android移动设备应用程序",
+      "default_stages": ["initiation", "requirements", "design", "development", "testing", "deployment", "management"]
+    },
+    "desktop-app": {
+      "name": "桌面应用",
+      "description": "Windows/Mac/Linux桌面应用程序",
+      "default_stages": ["initiation", "requirements", "design", "development", "testing", "deployment", "management"]
+    },
+    "api-service": {
+      "name": "API服务",
+      "description": "REST/GraphQL API服务",
+      "default_stages": ["initiation", "requirements", "design", "development", "testing", "deployment", "management"]
+    },
+    "data-platform": {
+      "name": "数据平台",
+      "description": "数据处理和分析平台",
+      "default_stages": ["initiation", "requirements", "design", "development", "testing", "deployment", "management"]
+    }
+  },
+  "categories": {
+    "initiation": {
+      "name": "立项阶段",
+      "stage": "01-立项",
+      "description": "项目立项相关文档",
+      "documents": [
+        {
+          "id": "initiation_proposal",
+          "name": "立项申请书",
+          "template": "assets/templates/initiation/立项申请书.md",
+          "required": true,
+          "priority": 1,
+          "required_variables": ["project_name", "company", "department", "background", "objectives", "budget", "timeline", "risk_assessment"],
+          "related": ["feasibility_study", "project_charter"]
+        },
+        {
+          "id": "feasibility_study",
+          "name": "可行性研究报告",
+          "template": "assets/templates/initiation/可行性研究报告.md",
+          "required": true,
+          "priority": 2,
+          "required_variables": ["project_name", "technical_feasibility", "economic_feasibility", "operational_feasibility", "risk_analysis", "recommendation"],
+          "related": ["initiation_proposal", "project_charter"]
+        },
+        {
+          "id": "project_charter",
+          "name": "项目章程",
+          "template": "assets/templates/initiation/项目章程.md",
+          "required": true,
+          "priority": 3,
+          "required_variables": ["project_name", "sponsor", "manager", "objectives", "scope", "deliverables", "constraints", "assumptions"],
+          "related": ["initiation_proposal", "project_plan"]
+        }
+      ]
+    },
+    "requirements": {
+      "name": "需求阶段",
+      "stage": "02-需求",
+      "description": "需求分析和规格说明文档",
+      "documents": [
+        {
+          "id": "srs",
+          "name": "需求规格说明书",
+          "template": "assets/templates/requirements/需求规格说明书.md",
+          "required": true,
+          "priority": 1,
+          "required_variables": ["project_name", "version", "introduction", "functional_requirements", "non_functional_requirements", "use_cases", "data_requirements"],
+          "related": ["brd", "user_stories"]
+        },
+        {
+          "id": "brd",
+          "name": "业务需求文档",
+          "template": "assets/templates/requirements/业务需求文档.md",
+          "required": true,
+          "priority": 2,
+          "required_variables": ["project_name", "business_background", "business_objectives", "stakeholders", "business_rules", "success_criteria"],
+          "related": ["srs", "user_stories"]
+        },
+        {
+          "id": "user_stories",
+          "name": "用户故事",
+          "template": "assets/templates/requirements/用户故事.md",
+          "required": true,
+          "priority": 3,
+          "required_variables": ["project_name", "personas", "epics", "stories", "acceptance_criteria"],
+          "related": ["srs", "brd"]
+        }
+      ]
+    },
+    "design": {
+      "name": "设计阶段",
+      "stage": "03-设计",
+      "description": "系统设计文档",
+      "documents": [
+        {
+          "id": "high_level_design",
+          "name": "概要设计",
+          "template": "assets/templates/design/概要设计.md",
+          "required": true,
+          "priority": 1,
+          "required_variables": ["project_name", "architecture", "modules", "interfaces", "data_flow", "security_design"],
+          "related": ["detailed_design", "database_design"]
+        },
+        {
+          "id": "detailed_design",
+          "name": "详细设计",
+          "template": "assets/templates/design/详细设计.md",
+          "required": true,
+          "priority": 2,
+          "required_variables": ["project_name", "modules", "class_design", "api_design", "error_handling", "logging"],
+          "related": ["high_level_design", "database_design"]
+        },
+        {
+          "id": "database_design",
+          "name": "数据库设计",
+          "template": "assets/templates/design/数据库设计.md",
+          "required": true,
+          "priority": 3,
+          "required_variables": ["project_name", "database_type", "schema", "tables", "indexes", "relationships", "queries"],
+          "related": ["high_level_design", "detailed_design"]
+        },
+        {
+          "id": "interface_design",
+          "name": "接口设计",
+          "template": "assets/templates/design/接口设计.md",
+          "required": true,
+          "priority": 4,
+          "required_variables": ["project_name", "api_list", "endpoints", "request_formats", "response_formats", "authentication", "error_codes"],
+          "related": ["detailed_design", "api_spec"]
+        }
+      ]
+    },
+    "development": {
+      "name": "开发阶段",
+      "stage": "04-开发",
+      "description": "开发规范和计划文档",
+      "documents": [
+        {
+          "id": "technical_solution",
+          "name": "技术方案",
+          "template": "assets/templates/development/技术方案.md",
+          "required": true,
+          "priority": 1,
+          "required_variables": ["project_name", "tech_stack", "architecture", "dev_plan", "quality_assurance"],
+          "related": ["high_level_design", "development_plan"]
+        },
+        {
+          "id": "development_plan",
+          "name": "开发计划",
+          "template": "assets/templates/development/开发计划.md",
+          "required": true,
+          "priority": 2,
+          "required_variables": ["project_name", "milestones", "tasks", "resources", "schedule", "deliverables"],
+          "related": ["technical_solution", "project_plan"]
+        },
+        {
+          "id": "coding_standards",
+          "name": "代码规范",
+          "template": "assets/templates/development/代码规范.md",
+          "required": true,
+          "priority": 3,
+          "required_variables": ["project_name", "language", "naming_conventions", "code_style", "documentation", "testing"],
+          "related": ["technical_solution"]
+        }
+      ]
+    },
+    "testing": {
+      "name": "测试阶段",
+      "stage": "05-测试",
+      "description": "测试相关文档",
+      "documents": [
+        {
+          "id": "test_plan",
+          "name": "测试计划",
+          "template": "assets/templates/testing/测试计划.md",
+          "required": true,
+          "priority": 1,
+          "required_variables": ["project_name", "test_strategy", "test_scope", "test_types", "resources", "schedule"],
+          "related": ["test_cases", "test_report"]
+        },
+        {
+          "id": "test_cases",
+          "name": "测试用例",
+          "template": "assets/templates/testing/测试用例.md",
+          "required": true,
+          "priority": 2,
+          "required_variables": ["project_name", "test_scenarios", "test_cases", "test_data", "expected_results"],
+          "related": ["test_plan", "test_report"]
+        },
+        {
+          "id": "test_report",
+          "name": "测试报告",
+          "template": "assets/templates/testing/测试报告.md",
+          "required": true,
+          "priority": 3,
+          "required_variables": ["project_name", "test_summary", "test_results", "defects", "coverage", "conclusion"],
+          "related": ["test_plan", "test_cases"]
+        }
+      ]
+    },
+    "deployment": {
+      "name": "部署阶段",
+      "stage": "06-部署",
+      "description": "部署和运维文档",
+      "documents": [
+        {
+          "id": "deployment_guide",
+          "name": "部署手册",
+          "template": "assets/templates/deployment/部署手册.md",
+          "required": true,
+          "priority": 1,
+          "required_variables": ["project_name", "environment", "prerequisites", "installation", "configuration", "troubleshooting"],
+          "related": ["operations_guide", "user_manual"]
+        },
+        {
+          "id": "user_manual",
+          "name": "用户手册",
+          "template": "assets/templates/deployment/用户手册.md",
+          "required": true,
+          "priority": 2,
+          "required_variables": ["project_name", "introduction", "features", "quick_start", "user_guide", "faq"],
+          "related": ["deployment_guide", "training_materials"]
+        },
+        {
+          "id": "operations_guide",
+          "name": "运维手册",
+          "template": "assets/templates/deployment/运维手册.md",
+          "required": true,
+          "priority": 3,
+          "required_variables": ["project_name", "system_overview", "monitoring", "maintenance", "backup", "incident_response"],
+          "related": ["deployment_guide"]
+        },
+        {
+          "id": "training_materials",
+          "name": "培训材料",
+          "template": "assets/templates/deployment/培训材料.md",
+          "required": true,
+          "priority": 4,
+          "required_variables": ["project_name", "training_objectives", "audience", "content", "exercises", "assessment"],
+          "related": ["user_manual"]
+        }
+      ]
+    },
+    "management": {
+      "name": "管理阶段",
+      "stage": "07-管理",
+      "description": "项目管理文档",
+      "documents": [
+        {
+          "id": "project_plan",
+          "name": "项目计划",
+          "template": "assets/templates/management/项目计划.md",
+          "required": true,
+          "priority": 1,
+          "required_variables": ["project_name", "objectives", "scope", "schedule", "budget", "team", "risk_management"],
+          "related": ["project_charter", "development_plan"]
+        },
+        {
+          "id": "risk_management",
+          "name": "风险管理",
+          "template": "assets/templates/management/风险管理.md",
+          "required": true,
+          "priority": 2,
+          "required_variables": ["project_name", "risk_identification", "risk_assessment", "mitigation_plan", "monitoring"],
+          "related": ["project_plan"]
+        },
+        {
+          "id": "weekly_report",
+          "name": "周报",
+          "template": "assets/templates/management/周报.md",
+          "required": true,
+          "priority": 3,
+          "required_variables": ["project_name", "week", "progress", "issues", "next_steps", "metrics"],
+          "related": ["project_plan"]
+        },
+        {
+          "id": "summary_report",
+          "name": "总结报告",
+          "template": "assets/templates/management/总结报告.md",
+          "required": true,
+          "priority": 4,
+          "required_variables": ["project_name", "executive_summary", "achievements", "challenges", "lessons_learned", "recommendations"],
+          "related": ["project_plan", "risk_management"]
+        },
+        {
+          "id": "change_log",
+          "name": "变更记录",
+          "template": "assets/templates/management/变更记录.md",
+          "required": true,
+          "priority": 5,
+          "required_variables": ["project_name", "change_id", "change_type", "description", "impact", "approval"],
+          "related": ["project_plan"]
+        }
+      ]
+    }
+  }
+}
