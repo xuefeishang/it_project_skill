@@ -1,0 +1,15 @@
+{
+  "name": "it-project-docs",
+  "version": "1.0.0",
+  "description": "为软件开发项目生成项目文档模板和填充内容",
+  "author": {
+    "name": "Claude"
+  },
+  "license": "MIT",
+  "keywords": [
+    "documentation",
+    "project-management",
+    "software-development",
+    "templates"
+  ]
+}
