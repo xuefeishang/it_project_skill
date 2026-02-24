@@ -1,13 +1,25 @@
 # 信息化项目文档生成 (IT Project Documentation)
 
-一个用于生成和管理IT软件开发项目文档的技能工具集。
+一个用于生成和管理IT软件开发项目文档的 Claude Code 插件，提供了从立项到部署全生命周期的文档管理功能。
 
-## 目录结构
+## 插件结构
 
 ```
 it-project-docs/
+├── .claude-plugin/          # Claude Code 插件目录
+│   └── plugin.json          # 插件清单
+├── commands/                # Slash 命令
+│   ├── create-project.md    # 创建项目
+│   ├── generate-template.md # 生成模板
+│   ├── fill-template.md     # 填充模板
+│   ├── list-docs.md         # 列出文档
+│   └── export-docs.md       # 导出文档
+├── skills/                  # 技能
+│   └── it-project-docs/
+│       └── SKILL.md         # 技能文件
 ├── SKILL.md                 # 英文技能定义
 ├── SKILL.zh.md              # 中文技能定义
+├── INSTALL.md               # 安装指南
 ├── README.md                # 本文件
 │
 ├── scripts/                 # Python 可执行脚本
@@ -46,22 +58,59 @@ it-project-docs/
 
 ## 快速开始
 
-### 1. 安装
+### 安装方式
 
-将技能目录复制到Claude Code技能目录：
+#### 方式一：符号链接（推荐，开发中使用）
 
 ```bash
-cp -r it-project-docs ~/.claude/skills/
+# Windows Git Bash
+ln -s /path/to/it-project-docs ~/.claude/plugins/local/it-project-docs
 ```
+
+#### 方式二：复制到本地插件目录
+
+```bash
+cp -r it-project-docs ~/.claude/plugins/local/it-project-docs
+```
+
+#### 方式三：从 GitHub 克隆
+
+```bash
+git clone https://github.com/xuefeishang/it_project_skill.git ~/.claude/plugins/local/it-project-docs
+```
+
+### 加载插件
+
+1. 重启 Claude Code
+2. 插件会自动加载
 
 ### 2. 创建新项目
 
+在 Claude Code 中使用 `/create-project` 命令：
+
+```
+/create-project my-web-app --type web-app --tech-stack "React,Node.js,PostgreSQL"
+```
+
+或者使用 Python 脚本：
+
 ```bash
-cd ~/.claude/skills/it-project-docs
 python scripts/create_project.py "my-web-app" --type web-app --tech-stack "React,Node.js,PostgreSQL"
 ```
 
 ### 3. 生成文档
+
+#### 使用 Claude Code 命令
+
+```
+# 生成需求规格说明书
+/generate-template 需求规格说明书 --project "data/projects/my-web-app"
+
+# 填充模板
+/fill-template "data/projects/my-web-app/02-需求/需求规格说明书.md"
+```
+
+#### 使用 Python 脚本
 
 ```bash
 # 生成需求规格说明书
@@ -73,12 +122,28 @@ python scripts/fill_template.py "data/projects/my-web-app/02-需求/需求规格
 
 ### 4. 跟踪进度
 
+#### 使用 Claude Code 命令
+
+```
+/list-docs --project "data/projects/my-web-app"
+```
+
+#### 使用 Python 脚本
+
 ```bash
 # 查看文档状态
 python scripts/track_status.py --project "data/projects/my-web-app" --report
 ```
 
 ### 5. 导出文档包
+
+#### 使用 Claude Code 命令
+
+```
+/export-docs --project "data/projects/my-web-app" --format zip
+```
+
+#### 使用 Python 脚本
 
 ```bash
 python scripts/export_bundle.py --project "data/projects/my-web-app" --format zip
@@ -304,6 +369,36 @@ python scripts/validate_template.py <template_file> [options]
 ### 如何批量处理多个项目？
 
 每个脚本都支持命令行参数，可以结合shell脚本进行批量处理。
+
+## 贡献指南
+
+欢迎贡献新的模板、改进脚本或修复bug。
+
+## Claude Code 插件特性
+
+### 自动技能激活
+
+IT Project Docs 技能会在以下场景自动激活：
+- 询问关于项目文档管理的问题
+- 需要创建项目结构时
+- 需要生成或填充文档模板时
+- 跟踪文档状态时
+
+### Slash 命令
+
+| 命令 | 描述 | 示例 |
+|------|------|------|
+| `/create-project` | 创建新项目文档结构 | `/create-project my-ecommerce --type web-app` |
+| `/generate-template` | 生成文档模板 | `/generate-template 需求规格说明书 --project "data/projects/my-project"` |
+| `/fill-template` | 填充模板变量 | `/fill-template "data/projects/my-project/02-需求/需求规格说明书.md"` |
+| `/list-docs` | 列出项目文档 | `/list-docs --project "data/projects/my-project"` |
+| `/export-docs` | 导出文档包 | `/export-docs --project "data/projects/my-project" --format zip` |
+
+### 插件开发模式
+
+当前项目支持两种使用模式：
+1. **插件模式**：通过 Claude Code 的自动发现机制，集成 Slash 命令和自动技能
+2. **独立脚本模式**：直接使用 Python 脚本，不依赖 Claude Code 环境
 
 ## 贡献指南
 
